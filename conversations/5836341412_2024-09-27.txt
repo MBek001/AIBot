@@ -1,0 +1,4 @@
+2024-09-27 05:23:00 User: Hi
+2024-09-27 05:23:00 AI: Hello! How can I assist you today?
+2024-09-27 05:23:21 User: on what gpt are you working?
+2024-09-27 05:23:21 AI: I am based on OpenAI's GPT-3 model. How can I help you today?

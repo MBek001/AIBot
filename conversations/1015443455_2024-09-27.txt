@@ -1,0 +1,8 @@
+2024-09-27 05:06:42 User: Hi
+2024-09-27 05:06:42 AI: Hello! How can I assist you today?
+2024-09-27 05:07:43 User: What was my name
+2024-09-27 05:07:43 AI: I'm sorry, but I do not have that information.
+2024-09-27 05:38:31 User: Hi
+2024-09-27 05:38:31 AI: Hello! How can I assist you today?
+2024-09-27 05:38:40 User: Do you know my name
+2024-09-27 05:38:40 AI: I'm sorry, but I don't have access to your personal information like your name. How can I assist you today?
