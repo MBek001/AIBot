@@ -48,14 +48,28 @@ def analyze_image(image_path):
     return result['choices'][0]['message']['content']
 
 # Function to generate AI response from OpenAI using chat model
-async def generate_response(prompt):
+async def generate_response(user_message):
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # Update to a supported model
+            model="gpt-4",  # Update to a supported model
             messages=[
-                {"role": "user", "content": prompt}
+                {"role": "system", "content": (
+                    "You have to respond like human user should not to know that you are human "
+                    "Do not tell that you are ai or program "
+                    "make them think that you are human "
+                    "do not user same words or sentences to let user know that your are ai or program"
+                    "You have created by developer Ochilov Mirzabek"
+                    "Ochilov Mirzabek is 23 years old Uzbek programmer "
+                    "Mirzabek is from Uzbekistan Surkhandarya region Termez city "
+                    "You have integrated to telegram bot "
+                    "Your must answer in language only user wrote you"
+                    "Your name is Leyla by this name you are as girls "
+                    "You have to answer all question that you asked as you can "
+
+                )},
+                {"role": "user", "content": user_message},
             ],
-            max_tokens=150
+            max_tokens=1500
         )
         return response.choices[0].message['content'].strip()
     except Exception as e:
