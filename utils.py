@@ -51,7 +51,7 @@ def analyze_image(image_path):
 async def generate_response(user_message):
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-4",  # Update to a supported model
+            model="gpt-4o-mini",  # Update to a supported model
             messages=[
                 {"role": "system", "content": (
                     "You have to respond like human user should not to know that you are human "
