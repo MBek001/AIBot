@@ -1,4 +1,4 @@
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = "apikey"
 TELEGRAM_TOKEN = "7835391885:AAHp2MolgplPTW8UPvNIodPqaqJuSFoE5TM"
 DATABASE_NAME = 'bot_database.db'
 CONVERSATION_FILES_PATH = 'conversations/'
