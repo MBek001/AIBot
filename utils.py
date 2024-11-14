@@ -75,3 +75,4 @@ async def generate_response(user_message):
     except Exception as e:
         logging.error(f"Error during OpenAI request: {e}")
         return "An error occurred while processing your request."
+        
