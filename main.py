@@ -3,24 +3,27 @@ import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import ContentType
 from aiogram.utils import executor
+from datetime import datetime
 
 from config import TELEGRAM_TOKEN
 from utils import encode_image, analyze_image, generate_response
 from conversation import save_user_info, get_conversation_file_name, save_conversation_record, save_conversation_to_file, load_conversation_from_file
-from datetime import datetime
 from queries import dp
 
-API_TOKEN = TELEGRAM_TOKEN
-bot = Bot(token=API_TOKEN)
-
+# Use your actual home directory for PythonAnywhere
+BASE_DIR = '/home/tuya/AIBot/'
 
 # Directory to save images and conversations
-IMAGE_DIR = "images"
-CONVERSATIONS_DIR = "conversations"
+IMAGE_DIR = os.path.join(BASE_DIR, 'images')
+CONVERSATIONS_DIR = os.path.join(BASE_DIR, 'conversations')
 
 # Create the directories if they do not exist
 os.makedirs(IMAGE_DIR, exist_ok=True)
 os.makedirs(CONVERSATIONS_DIR, exist_ok=True)
+
+# Set up the bot token
+API_TOKEN = TELEGRAM_TOKEN
+bot = Bot(token=API_TOKEN)
 
 @dp.message_handler(content_types=[ContentType.TEXT])
 async def handle_text(message: types.Message):
@@ -70,7 +73,7 @@ async def handle_photo(message: types.Message):
     file_path = file.file_path
 
     # Define the full path to save the image
-    image_path = os.path.join(IMAGE_DIR, "temp_image.jpg")
+    image_path = os.path.join(IMAGE_DIR, f"{message.from_user.id}_temp_image.jpg")
 
     # Download and save the image
     await bot.download_file(file_path, image_path)
@@ -105,3 +108,4 @@ async def handle_photo(message: types.Message):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     executor.start_polling(dp, skip_updates=True)
+    
